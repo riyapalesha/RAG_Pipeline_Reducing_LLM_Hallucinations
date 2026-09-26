@@ -93,8 +93,6 @@ The implemented pipeline follows the general workflow:
                     └──────────────────────┘
 ```
 
----
-
 ## Methodology
 
 ### 1. Document Processing
@@ -113,7 +111,6 @@ For example, the current implementation uses a maximum chunk size of 4000 charac
 
 CSV files are processed row-by-row, with each row converted into a document containing its column-value pairs.
 
----
 
 ### 2. Embedding Generation
 
@@ -121,7 +118,6 @@ Document chunks are converted into vector representations using the **`nomic-emb
 
 These vector representations allow documents to be compared according to their semantic meaning rather than relying only on exact keyword matches.
 
----
 
 ### 3. Vector Storage and Retrieval
 
@@ -131,7 +127,6 @@ The vector store is persisted locally, allowing it to be reused between executio
 
 A corresponding **ChromaDB implementation** was developed as part of the research to compare vector-store alternatives under the same RAG framework.
 
----
 
 ### 4. Similarity Retrieval
 
@@ -139,7 +134,6 @@ For each user query, the vector store retrieves the **15 most relevant document 
 
 The retrieved documents are then deduplicated before being passed to the semantic re-ranking stage.
 
----
 
 ### 5. Semantic Re-ranking
 
@@ -165,7 +159,6 @@ Semantic Similarity
 
 The implementation performs the embedding calculations in batches and uses cosine similarity to select the highest-ranking documents.
 
----
 
 ### 6. Context-Grounded Response Generation
 
@@ -175,7 +168,6 @@ The generation prompt explicitly instructs the model to answer using only the re
 
 This grounding mechanism is intended to reduce the model's reliance on unsupported parametric knowledge.
 
----
 
 ### 7. Confidence Scoring and Fact Checking
 
@@ -187,7 +179,6 @@ The confidence-scoring stage can be disabled when faster response times are pref
 
 > **Note:** The confidence score is an LLM-generated assessment of contextual consistency; it should not be interpreted as a calibrated probability of correctness.
 
----
 
 ### 8. Performance Measurement
 
@@ -200,7 +191,6 @@ The system measures the time required for different stages of the pipeline, incl
 
 These measurements allow retrieval and generation performance to be compared across different configurations.
 
----
 
 ### 9. Response Caching
 
@@ -208,7 +198,6 @@ Previously processed queries are stored in an in-memory cache.
 
 If the same query is submitted again during execution, the previously generated response and associated information can be returned without repeating the complete retrieval and generation pipeline.
 
----
 
 ## Technologies Used
 
@@ -227,8 +216,6 @@ If the same query is submitted again during execution, the previously generated 
 | Data Processing         | Pandas                |
 | Similarity Calculation  | Cosine Similarity     |
 | Tensor Computation      | PyTorch               |
-
----
 
 
 
@@ -304,7 +291,6 @@ python custom_pipeline.py <path-to-document>
 
 The program processes the document, creates or loads the vector store, and then starts an interactive question-answering loop.
 
----
 
 ## Example Workflow
 
