@@ -19,7 +19,6 @@ The system combines:
 
 The project also evaluates the use of **FAISS and ChromaDB** as vector-store backends to study their effect on retrieval performance and the overall reliability of generated responses.
 
----
 
 ## Research Objective
 
@@ -33,7 +32,6 @@ The project specifically explores:
 4. The performance characteristics of different vector-store implementations, particularly **FAISS and ChromaDB**.
 5. The relationship between retrieval performance, response latency, and factual reliability.
 
----
 
 ## System Architecture
 
@@ -266,7 +264,6 @@ pip install python-dotenv
 
 Additional dependencies may be required by `Unstructured` depending on the document formats being processed.
 
----
 
 ## Ollama Setup
 
@@ -287,7 +284,7 @@ ollama pull nomic-embed-text
 
 The implementation is configured to use the quantized `llama3.1:8b-instruct-q4_0` model with GPU and CPU-thread settings.
 
----
+
 
 ## Running the Project
 
@@ -337,7 +334,7 @@ The program processes the document, creates or loads the vector store, and then 
 12. Display answer, timing, and confidence information
 ```
 
----
+
 
 ## Example Output
 
@@ -365,7 +362,7 @@ Explanation: <brief explanation>
 
 The system can also display the top retrieved source chunks, allowing users to inspect the evidence used to generate the answer.
 
----
+
 
 ## FAISS vs. ChromaDB
 
@@ -385,7 +382,7 @@ The evaluation considers factors such as:
 
 The results of these experiments are reported in the research paper accompanying this project.
 
----
+
 
 ## Key Features
 
@@ -400,7 +397,7 @@ The results of these experiments are reported in the research paper accompanying
 * **Source inspection** — allows users to view the top retrieved chunks.
 * **FAISS and ChromaDB comparison** — evaluates alternative vector-store implementations.
 
----
+
 
 ## Limitations
 
@@ -414,7 +411,7 @@ The current implementation has several limitations:
 6. The current implementation uses a relatively small local LLM rather than evaluating multiple model families.
 7. Performance measurements may vary depending on hardware and GPU availability.
 
----
+
 
 ## Research Contribution
 
@@ -422,4 +419,4 @@ This project explores a practical approach to hallucination mitigation by combin
 
 In addition to studying hallucination reduction, the project investigates how the choice of vector-store backend can influence the performance and reliability of a RAG-based LLM system.
 
----
+
